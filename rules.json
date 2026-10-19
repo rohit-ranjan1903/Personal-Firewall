@@ -1,0 +1,45 @@
+{
+  "default_action": "allow",
+  "rules": [
+    {
+      "name": "Block incoming Telnet",
+      "action": "block",
+      "direction": "in",
+      "protocol": "tcp",
+      "local_port": 23
+    },
+    {
+      "name": "Block incoming RDP from internet",
+      "action": "block",
+      "direction": "in",
+      "protocol": "tcp",
+      "local_port": 3389
+    },
+    {
+      "name": "Block incoming SMB",
+      "action": "block",
+      "direction": "in",
+      "protocol": "tcp",
+      "local_port": [139, 445]
+    },
+    {
+      "name": "Block outgoing FTP (plain text)",
+      "action": "block",
+      "direction": "out",
+      "protocol": "tcp",
+      "remote_port": 21
+    },
+    {
+      "name": "Block incoming ping",
+      "action": "block",
+      "direction": "in",
+      "protocol": "icmp"
+    },
+    {
+      "name": "Block example bad IP (test)",
+      "action": "block",
+      "direction": "any",
+      "remote_ip": ["203.0.113.0/24"]
+    }
+  ]
+}
